@@ -1,13 +1,11 @@
 /**
  * @fileOverview 负责文件上传相关。
  */
-define([
-    '../base',
-    '../uploader',
-    '../file',
-    '../lib/transport',
-    './widget'
-], function( Base, Uploader, WUFile, Transport ) {
+var Base = require('../base');
+var Uploader = require('../uploader');
+var WUFile = require('../file');
+var Transport = require('../lib/transport');
+require('./widget');
 
     var $ = Base.$,
         isPromise = Base.isPromise,
@@ -848,4 +846,3 @@ define([
         }
 
     });
-});

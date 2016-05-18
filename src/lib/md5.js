@@ -1,10 +1,8 @@
 /**
  * @fileOverview Md5
  */
-define([
-    '../runtime/client',
-    '../mediator'
-], function( RuntimeClient, Mediator ) {
+var Mediator = require('../mediator');
+var RuntimeClient = require('../runtime/client');
 
     function Md5() {
         RuntimeClient.call( this, 'Md5' );
@@ -31,5 +29,4 @@ define([
         return this.exec('getResult');
     };
 
-    return Md5;
-});
+    module.exports = Md5;

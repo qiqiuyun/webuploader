@@ -1,12 +1,11 @@
 /**
  * @fileOverview Blob Html实现
  */
-define([
-    './runtime',
-    '../../lib/blob'
-], function( Html5Runtime, Blob ) {
 
-    return Html5Runtime.register( 'Blob', {
+var Html5Runtime = require('./runtime');
+var Blob = require('../../lib/blob');
+
+    module.exports = Html5Runtime.register( 'Blob', {
         slice: function( start, end ) {
             var blob = this.owner.source,
                 slice = blob.slice || blob.webkitSlice || blob.mozSlice;
@@ -16,4 +15,3 @@ define([
             return new Blob( this.getRuid(), blob );
         }
     });
-});

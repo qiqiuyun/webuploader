@@ -1,11 +1,9 @@
 /**
  * @fileOverview 错误信息
  */
-define([
-    '../base',
-    '../runtime/client',
-    './file'
-], function( Base, RuntimeClient, File ) {
+var Base = require('../base');
+var RuntimeClient = require('../runtime/client');
+var File = require('./file');
 
     var $ = Base.$;
 
@@ -132,5 +130,4 @@ define([
         }
     });
 
-    return FilePicker;
-});
+    module.exports = FilePicker;

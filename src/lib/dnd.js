@@ -1,11 +1,10 @@
 /**
  * @fileOverview 错误信息
  */
-define([
-    '../base',
-    '../mediator',
-    '../runtime/client'
-], function( Base, Mediator, RuntimeClent ) {
+
+var Base = require('../base');
+var Mediator = require('../mediator');
+var RuntimeClient = require('../runtime/client');
 
     var $ = Base.$;
 
@@ -18,7 +17,7 @@ define([
             return;
         }
 
-        RuntimeClent.call( this, 'DragAndDrop' );
+        RuntimeClient.call( this, 'DragAndDrop' );
     }
 
     DragAndDrop.options = {
@@ -26,7 +25,7 @@ define([
         disableGlobalDnd: false
     };
 
-    Base.inherits( RuntimeClent, {
+    Base.inherits( RuntimeClient, {
         constructor: DragAndDrop,
 
         init: function() {
@@ -41,5 +40,4 @@ define([
 
     Mediator.installTo( DragAndDrop.prototype );
 
-    return DragAndDrop;
-});
+    module.exports = DragAndDrop;

@@ -1,11 +1,10 @@
 /**
  * @fileOverview 文件队列
  */
-define([
-    './base',
-    './mediator',
-    './file'
-], function( Base, Mediator, WUFile ) {
+
+ var Base = require('./base');
+ var Mediator = require('./mediator');
+ var WUFile = require('./file');
 
     var $ = Base.$,
         STATUS = WUFile.Status;
@@ -239,5 +238,4 @@ define([
 
     Mediator.installTo( Queue.prototype );
 
-    return Queue;
-});
+    module.exports = Queue;

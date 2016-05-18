@@ -1,10 +1,9 @@
 /**
  * @fileOverview Blob
  */
-define([
-    '../base',
-    '../runtime/client'
-], function( Base, RuntimeClient ) {
+
+var Base = require('../base');
+var RuntimeClient = require('../runtime/client');
 
     function Blob( ruid, source ) {
         var me = this;
@@ -41,5 +40,4 @@ define([
         }
     });
 
-    return Blob;
-});
+    module.exports = Blob;

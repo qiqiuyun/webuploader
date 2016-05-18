@@ -1,11 +1,10 @@
 /**
  * @fileOverview Runtime管理器，负责Runtime的选择, 连接
  */
-define([
-    '../base',
-    '../mediator',
-    './runtime'
-], function( Base, Mediator, Runtime ) {
+
+var Base = require('../base');
+var Mediator = require('../mediator');
+var Runtime = require('./runtime');
 
     var cache;
 
@@ -135,5 +134,4 @@ define([
     }
 
     Mediator.installTo( RuntimeClient.prototype );
-    return RuntimeClient;
-});
+    module.exports = RuntimeClient;

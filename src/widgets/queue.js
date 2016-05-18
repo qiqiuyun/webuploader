@@ -1,21 +1,20 @@
 /**
  * @fileOverview 队列
  */
-define([
-    '../base',
-    '../uploader',
-    '../queue',
-    '../file',
-    '../lib/file',
-    '../runtime/client',
-    './widget'
-], function( Base, Uploader, Queue, WUFile, File, RuntimeClient ) {
+
+var Base = require('../base');
+var Uploader = require('../uploader');
+var Queue = require('../queue');
+var WUFile = require('../file');
+var File = require('../lib/file');
+var RuntimeClient = require('../runtime/client');
+require('./widget');
 
     var $ = Base.$,
         rExt = /\.\w+$/,
         Status = WUFile.Status;
 
-    return Uploader.register({
+    module.exports = Uploader.register({
         name: 'queue',
 
         init: function( opts ) {
@@ -305,5 +304,3 @@ define([
             this.placeholder && this.placeholder.destroy();
         }
     });
-
-});

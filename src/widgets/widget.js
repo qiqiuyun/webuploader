@@ -1,10 +1,9 @@
 /**
  * @fileOverview 组件基类。
  */
-define([
-    '../base',
-    '../uploader'
-], function( Base, Uploader ) {
+
+var Base = require('../base');
+var Uploader = require('../uploader');
 
     var $ = Base.$,
         _init = Uploader.prototype._init,
@@ -235,5 +234,4 @@ define([
         }
     };
 
-    return Widget;
-});
+    module.exports = Widget;

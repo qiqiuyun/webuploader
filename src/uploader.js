@@ -1,10 +1,9 @@
+var Base = require('./base');
+var Mediator = require('./mediator');
+
 /**
  * @fileOverview Uploader上传类
  */
-define([
-    './base',
-    './mediator'
-], function( Base, Mediator ) {
 
     var $ = Base.$;
 
@@ -195,5 +194,4 @@ define([
     // 暴露Uploader，可以通过它来扩展业务逻辑。
     Base.Uploader = Uploader;
 
-    return Uploader;
-});
+    module.exports = Uploader;

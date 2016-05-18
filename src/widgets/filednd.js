@@ -1,12 +1,12 @@
 /**
  * @fileOverview DragAndDrop Widget。
  */
-define([
-    '../base',
-    '../uploader',
-    '../lib/dnd',
-    './widget'
-], function( Base, Uploader, Dnd ) {
+
+var Base = require('../base');
+var Uploader = require('../uploader');
+var Dnd = require('../lib/dnd');
+require('./widget');
+
     var $ = Base.$;
 
     Uploader.options.dnd = '';
@@ -29,7 +29,7 @@ define([
      * @description 阻止此事件可以拒绝某些类型的文件拖入进来。目前只有 chrome 提供这样的 API，且只能通过 mime-type 验证。
      * @for  Uploader
      */
-    return Uploader.register({
+    module.exports = Uploader.register({
         name: 'dnd',
         
         init: function( opts ) {
@@ -69,4 +69,3 @@ define([
             this.dnd && this.dnd.destroy();
         }
     });
-});

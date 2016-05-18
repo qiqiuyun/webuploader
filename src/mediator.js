@@ -2,9 +2,9 @@
  * 事件处理类，可以独立使用，也可以扩展给对象使用。
  * @fileOverview Mediator
  */
-define([
-    './base'
-], function( Base ) {
+
+var Base = require('./base');
+
     var $ = Base.$,
         slice = [].slice,
         separator = /\s+/,
@@ -200,7 +200,7 @@ define([
      *
      * @class Mediator
      */
-    return $.extend({
+    module.exports = $.extend({
 
         /**
          * 可以通过这个接口，使任何对象具备事件功能。
@@ -213,4 +213,3 @@ define([
         }
 
     }, protos );
-});

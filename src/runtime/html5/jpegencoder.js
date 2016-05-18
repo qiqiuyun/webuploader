@@ -5,7 +5,6 @@
  * 所以这里没辙，只能借助这个工具
  * @fileOverview jpeg encoder
  */
-define([], function( require, exports, module ) {
 
     /*
       Copyright (c) 2008, Adobe Systems Incorporated
@@ -748,5 +747,4 @@ define([], function( require, exports, module ) {
         return encoder.encode( data );
     }
 
-    return JPEGEncoder;
-});
+    module.exports = JPEGEncoder;

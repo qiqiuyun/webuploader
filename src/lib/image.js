@@ -1,11 +1,11 @@
 /**
  * @fileOverview Image
  */
-define([
-    '../base',
-    '../runtime/client',
-    './blob'
-], function( Base, RuntimeClient, Blob ) {
+
+var Base = require('../base');
+var RuntimeClient = require('../runtime/client');
+var Blog = require('./blob');
+
     var $ = Base.$;
 
     // 构造器。
@@ -94,5 +94,4 @@ define([
         }
     });
 
-    return Image;
-});
+    module.exports = Image;

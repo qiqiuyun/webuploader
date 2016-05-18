@@ -1,11 +1,9 @@
 /**
  * @fileOverview Transport
  */
-define([
-    '../base',
-    '../runtime/client',
-    '../mediator'
-], function( Base, RuntimeClient, Mediator ) {
+var Base = require('../base');
+var Mediator = require('../mediator');
+var RuntimeClient = require('../runtime/client');
 
     var $ = Base.$;
 
@@ -126,5 +124,4 @@ define([
     // 让Transport具备事件功能。
     Mediator.installTo( Transport.prototype );
 
-    return Transport;
-});
+    module.exports = Transport;

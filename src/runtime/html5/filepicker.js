@@ -1,14 +1,13 @@
 /**
  * @fileOverview FilePicker
  */
-define([
-    '../../base',
-    './runtime'
-], function( Base, Html5Runtime ) {
+
+var Base = require('../../base');
+var Html5Runtime = require('./runtime');
 
     var $ = Base.$;
 
-    return Html5Runtime.register( 'FilePicker', {
+    module.exports = Html5Runtime.register( 'FilePicker', {
         init: function() {
             var container = this.getRuntime().getContainer(),
                 me = this,
@@ -92,4 +91,3 @@ define([
             this.label.off();
         }
     });
-});

@@ -3,10 +3,9 @@
  * 以至于要调用Flash里面的File，也可以像调用HTML5版本的File一下。
  * @fileOverview File
  */
-define([
-    '../base',
-    './blob'
-], function( Base, Blob ) {
+
+var Base = require('../base');
+var Blob = require('./blob');
 
     var uid = 1,
         rExt = /\.([^.]+)$/;
@@ -32,5 +31,4 @@ define([
         Blob.apply( this, arguments );
     }
 
-    return Base.inherits( Blob, File );
-});
+    module.exports = Base.inherits( Blob, File );

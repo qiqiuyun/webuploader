@@ -1,10 +1,8 @@
 /**
  * @fileOverview 文件属性封装
  */
-define([
-    './base',
-    './mediator'
-], function( Base, Mediator ) {
+var Base = require('./base');
+var Mediator = require('./mediator');
 
     var $ = Base.$,
         idPrefix = 'WU_FILE_',
@@ -181,5 +179,4 @@ define([
         INVALID:    'invalid'    // 文件不合格，不能重试上传。
     };
 
-    return WUFile;
-});
+    module.exports = WUFile;

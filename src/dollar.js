@@ -1,8 +1,13 @@
 /**
  * @fileOverview Dom 操作相关
  */
-define([
-    './dollar-third'
-], function( _ ) {
-    return _;
-});
+
+var $ = window.__dollar || 
+    window.jQuery || 
+    window.Zepto;
+
+if ( !$ ) {
+    throw new Error('jQuery or Zepto not found!');
+}
+
+module.exports = $;

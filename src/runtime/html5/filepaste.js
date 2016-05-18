@@ -1,13 +1,11 @@
 /**
  * @fileOverview FilePaste
  */
-define([
-    '../../base',
-    './runtime',
-    '../../lib/file'
-], function( Base, Html5Runtime, File ) {
+var Base = require('../../base');
+var Html5Runtime = require('./runtime');
+var File = require('../../lib/file');
 
-    return Html5Runtime.register( 'FilePaste', {
+    module.exports = Html5Runtime.register( 'FilePaste', {
         init: function() {
             var opts = this.options,
                 elem = this.elem = opts.container,
@@ -63,4 +61,3 @@ define([
             this.elem.off( 'paste', this.hander );
         }
     });
-});

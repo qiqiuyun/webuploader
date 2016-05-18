@@ -1,8 +1,6 @@
 /**
  * @fileOverview Runtime管理器，负责Runtime的选择, 连接
  */
-define(function() {
-
     function CompBase( owner, runtime ) {
 
         this.owner = owner;
@@ -21,5 +19,4 @@ define(function() {
         };
     }
 
-    return CompBase;
-});
+    module.exports = CompBase;

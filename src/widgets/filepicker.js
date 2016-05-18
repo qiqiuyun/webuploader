@@ -1,12 +1,11 @@
 /**
  * @fileOverview 文件选择相关
  */
-define([
-    '../base',
-    '../uploader',
-    '../lib/filepicker',
-    './widget'
-], function( Base, Uploader, FilePicker ) {
+var Base = require('../base');
+var Uploader = require('../uploader');
+var FilePicker = require('../lib/filepicker');
+require('./widget');
+
     var $ = Base.$;
 
     $.extend( Uploader.options, {
@@ -51,7 +50,7 @@ define([
         }*/
     });
 
-    return Uploader.register({
+    module.exports = Uploader.register({
         name: 'picker',
 
         init: function( opts ) {
@@ -141,4 +140,3 @@ define([
             this.pickers = null;
         }
     });
-});

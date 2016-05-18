@@ -1,15 +1,14 @@
 /**
  * @fileOverview 图片操作, 负责预览图片和上传前压缩图片
  */
-define([
-    '../base',
-    '../uploader',
-    '../lib/md5',
-    '../lib/blob',
-    './widget'
-], function( Base, Uploader, Md5, Blob ) {
 
-    return Uploader.register({
+var Base = require('../base');
+var Uploader = require('../uploader');
+var Md5 = require('../lib/md5');
+var Blob = require('../lib/blob');
+require('./widget');
+
+    module.exports = Uploader.register({
         name: 'md5',
 
 
@@ -72,4 +71,3 @@ define([
             return deferred.promise();
         }
     });
-});

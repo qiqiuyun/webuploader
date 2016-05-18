@@ -1,10 +1,8 @@
 /**
  * @fileOverview 使用jQuery的Promise
  */
-define([
-    './dollar'
-], function( $ ) {
-    return {
+    var $ = require('./dollar');
+    module.exports = {
         Deferred: $.Deferred,
         when: $.when,
 
@@ -12,4 +10,3 @@ define([
             return anything && typeof anything.then === 'function';
         }
     };
-});

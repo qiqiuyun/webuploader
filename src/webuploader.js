@@ -1,9 +1,7 @@
 /**
  * @fileOverview Uploader上传类
  */
-define([
-    './preset/all',
-    './widgets/log'
-], function( preset ) {
-    return preset;
-});
+var preset = require('./preset/all');
+require('./widgets/log');
+
+module.exports = preset;

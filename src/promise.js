@@ -1,8 +1,5 @@
 /**
  * @fileOverview Promise/A+
  */
-define([
-    './promise-third'
-], function( _ ) {
-    return _;
-});
+
+module.exports = require('./promise-third');

@@ -1,11 +1,10 @@
 /**
  * @fileOverview Html5Runtime
  */
-define([
-    '../../base',
-    '../runtime',
-    '../compbase'
-], function( Base, Runtime, CompBase ) {
+
+var Base = require('../../base');
+var Runtime = require('../runtime');
+var CompBase = require('../compbase');
 
     var type = 'html5',
         components = {};
@@ -67,5 +66,4 @@ define([
         Runtime.addRuntime( type, Html5Runtime );
     }
 
-    return Html5Runtime;
-});
+    module.exports = Html5Runtime;

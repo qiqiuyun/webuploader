@@ -1,12 +1,12 @@
 /**
  * @fileOverview 组件基类。
  */
-define([
-    '../base',
-    '../uploader',
-    '../lib/filepaste',
-    './widget'
-], function( Base, Uploader, FilePaste ) {
+
+var Base = require('../base');
+var Uploader = require('../uploader');
+var FilePaste = require('../lib/filepaste');
+require('./widget');
+
     var $ = Base.$;
 
     /**
@@ -14,7 +14,7 @@ define([
      * @namespace options
      * @for Uploader
      */
-    return Uploader.register({
+    module.exports = Uploader.register({
         name: 'paste',
         
         init: function( opts ) {
@@ -47,4 +47,3 @@ define([
             this.paste && this.paste.destroy();
         }
     });
-});

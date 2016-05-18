@@ -1,11 +1,10 @@
 /**
  * @fileOverview 添加获取Runtime相关信息的方法。
  */
-define([
-    '../uploader',
-    '../runtime/runtime',
-    './widget'
-], function( Uploader, Runtime ) {
+
+var Uploader = require('../uploader');
+var RuntimeClient = require('../runtime/client');
+require('./widget');
 
     Uploader.support = function() {
         return Runtime.hasRuntime.apply( Runtime, arguments );
@@ -20,7 +19,7 @@ define([
      * 可以将此值设置成 `flash`，来强制使用 flash 运行时。
      */
 
-    return Uploader.register({
+    module.exports = Uploader.register({
         name: 'runtime',
 
         init: function() {
@@ -54,4 +53,3 @@ define([
             return type;
         }
     });
-});

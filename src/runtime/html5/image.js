@@ -1,15 +1,14 @@
 /**
  * @fileOverview Image
  */
-define([
-    '../../base',
-    './runtime',
-    './util'
-], function( Base, Html5Runtime, Util ) {
+
+var Base = require('../../base');
+var Html5Runtime = require('./runtime');
+var Util = require('./util');
 
     var BLANK = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D';
 
-    return Html5Runtime.register( 'Image', {
+    module.exports = Html5Runtime.register( 'Image', {
 
         // flag: 标记是否被修改过。
         modified: false,
@@ -432,4 +431,3 @@ define([
             };
         })()
     });
-});

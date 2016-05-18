@@ -1,12 +1,11 @@
 /**
  * @fileOverview 图片操作, 负责预览图片和上传前压缩图片
  */
-define([
-    '../base',
-    '../uploader',
-    '../lib/image',
-    './widget'
-], function( Base, Uploader, Image ) {
+
+var Base = require('../base');
+var Uploader = require('../uploader');
+var Image = require('../lib/image');
+require('./widget');
 
     var $ = Base.$,
         throttle;
@@ -124,7 +123,7 @@ define([
         }
     });
 
-    return Uploader.register({
+    module.exports = Uploader.register({
 
         name: 'image',
 
@@ -306,4 +305,3 @@ define([
             return deferred.promise();
         }
     });
-});

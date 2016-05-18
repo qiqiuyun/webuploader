@@ -1,38 +1,36 @@
 /**
  * @fileOverview 完全版本。
  */
-define([
-    '../base',
+var Base = require('../base');
 
     // widgets
-    '../widgets/filednd',
-    '../widgets/filepaste',
-    '../widgets/filepicker',
-    '../widgets/image',
-    '../widgets/queue',
-    '../widgets/runtime',
-    '../widgets/upload',
-    '../widgets/validator',
-    '../widgets/md5',
+require('../widgets/filednd');
+require('../widgets/filepaste');
+require('../widgets/filepicker');
+require('../widgets/image');
+require('../widgets/queue');
+require('../widgets/runtime');
+require('../widgets/upload');
+require('../widgets/validator');
+require('../widgets/md5');
 
     // runtimes
     // html5
-    '../runtime/html5/blob',
-    '../runtime/html5/dnd',
-    '../runtime/html5/filepaste',
-    '../runtime/html5/filepicker',
-    '../runtime/html5/imagemeta/exif',
-    '../runtime/html5/androidpatch',
-    '../runtime/html5/image',
-    '../runtime/html5/transport',
-    '../runtime/html5/md5',
+require('../runtime/html5/blob');
+require('../runtime/html5/dnd');
+require('../runtime/html5/filepaste');
+require('../runtime/html5/filepicker');
+require('../runtime/html5/imagemeta/exif');
+require('../runtime/html5/androidpatch');
+require('../runtime/html5/image');
+require('../runtime/html5/transport');
+require('../runtime/html5/md5');
 
     // flash
-    '../runtime/flash/filepicker',
-    '../runtime/flash/image',
-    '../runtime/flash/transport',
-    '../runtime/flash/blob',
-    '../runtime/flash/md5'
-], function( Base ) {
-    return Base;
-});
+require('../runtime/flash/filepicker');
+require('../runtime/flash/image');
+require('../runtime/flash/transport');
+require('../runtime/flash/blob');
+require('../runtime/flash/md5');
+
+module.exports = Base;

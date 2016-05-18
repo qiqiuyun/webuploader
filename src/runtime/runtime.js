@@ -1,10 +1,9 @@
 /**
  * @fileOverview Runtime管理器，负责Runtime的选择, 连接
  */
-define([
-    '../base',
-    '../mediator'
-], function( Base, Mediator ) {
+
+var Base = require('../base.js');
+var Mediator = require('../mediator.js');
 
     var $ = Base.$,
         factories = {},
@@ -105,5 +104,4 @@ define([
     };
 
     Mediator.installTo( Runtime.prototype );
-    return Runtime;
-});
+    module.exports = Runtime;

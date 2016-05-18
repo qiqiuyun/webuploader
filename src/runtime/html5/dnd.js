@@ -1,16 +1,15 @@
 /**
  * @fileOverview FilePaste
  */
-define([
-    '../../base',
-    './runtime',
-    '../../lib/file'
-], function( Base, Html5Runtime, File ) {
+
+var Base = require('../../base');
+var Html5Runtime = require('./runtime');
+var File = require('../../lib/file');
 
     var $ = Base.$,
         prefix = 'webuploader-dnd-';
 
-    return Html5Runtime.register( 'DragAndDrop', {
+    module.exports = Html5Runtime.register( 'DragAndDrop', {
         init: function() {
             var elem = this.elem = this.options.container;
 
@@ -206,4 +205,3 @@ define([
             }
         }
     });
-});

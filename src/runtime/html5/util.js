@@ -4,9 +4,7 @@
  * Uint8Array, FileReader, BlobBuilder, atob, ArrayBuffer
  * @fileOverview Image控件
  */
-define([
-    '../../base'
-], function( Base ) {
+var Base = require('../../base');
 
     var urlAPI = window.createObjectURL && window ||
             window.URL && URL.revokeObjectURL && URL ||
@@ -26,7 +24,7 @@ define([
         };
     }
 
-    return {
+    module.exports = {
         createObjectURL: createObjectURL,
         revokeObjectURL: revokeObjectURL,
 
@@ -103,4 +101,3 @@ define([
             return data;
         }
     };
-});

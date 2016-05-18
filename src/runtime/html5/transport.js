@@ -4,15 +4,14 @@
  * 可以将大文件分成小块，挨个传输，可以提高大文件成功率，当失败的时候，也只需要重传那小部分，
  * 而不需要重头再传一次。另外断点续传也需要用chunked方式。
  */
-define([
-    '../../base',
-    './runtime'
-], function( Base, Html5Runtime ) {
+
+var Base = require('../../base');
+var Html5Runtime = require('./runtime');
 
     var noop = Base.noop,
         $ = Base.$;
 
-    return Html5Runtime.register( 'Transport', {
+    module.exports = Html5Runtime.register( 'Transport', {
         init: function() {
             this._status = 0;
             this._response = null;
@@ -169,4 +168,3 @@ define([
             return json;
         }
     });
-});

@@ -4715,7 +4715,7 @@
                 me.dndOver = false;
                 me.elem.removeClass( prefix + 'over' );
     
-                if ( data ) {
+                if ( !dataTransfer || data ) {
                     return;
                 }
     

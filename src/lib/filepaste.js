@@ -1,21 +1,20 @@
 /**
  * @fileOverview 错误信息
  */
-define([
-    '../base',
-    '../mediator',
-    '../runtime/client'
-], function( Base, Mediator, RuntimeClent ) {
+
+var Base = require('../base');
+var Mediator = require('../mediator');
+var RuntimeClient = require('../runtime/client');
 
     var $ = Base.$;
 
     function FilePaste( opts ) {
         opts = this.options = $.extend({}, opts );
         opts.container = $( opts.container || document.body );
-        RuntimeClent.call( this, 'FilePaste' );
+        RuntimeClient.call( this, 'FilePaste' );
     }
 
-    Base.inherits( RuntimeClent, {
+    Base.inherits( RuntimeClient, {
         constructor: FilePaste,
 
         init: function() {
@@ -30,5 +29,4 @@ define([
 
     Mediator.installTo( FilePaste.prototype );
 
-    return FilePaste;
-});
+    module.exports = FilePaste;

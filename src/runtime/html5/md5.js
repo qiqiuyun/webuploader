@@ -1,9 +1,8 @@
 /**
  * @fileOverview  Transport flash实现
  */
-define([
-    './runtime'
-], function( FlashRuntime ) {
+
+var FlashRuntime = require('./runtime');
 
     /*
      * Fastest md5 implementation around (JKM md5)
@@ -575,7 +574,7 @@ define([
         return !!raw ? hash : hex(hash);
     };
     
-    return FlashRuntime.register( 'Md5', {
+    module.exports = FlashRuntime.register( 'Md5', {
         init: function() {
             // do nothing.
         },
@@ -632,4 +631,3 @@ define([
             return this.result;
         }
     });
-});

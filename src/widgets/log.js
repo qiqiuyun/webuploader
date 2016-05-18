@@ -14,11 +14,11 @@
  *     ...
  * })
  */
-define([
-    '../base',
-    '../uploader',
-    './widget'
-], function( Base, Uploader ) {
+
+var Base = require('../base');
+var Uploader = require('../uploader');
+require('./widget');
+
     var $ = Base.$,
         logUrl = ' http://static.tieba.baidu.com/tb/pms/img/st.gif??',
         product = (location.hostname || location.host || 'protected').toLowerCase(),
@@ -28,7 +28,7 @@ define([
         base;
 
     if (!enable) {
-        return;
+        module.exports = Uploader;
     }
 
     base = {
@@ -48,7 +48,7 @@ define([
         image.src = url;
     }
 
-    return Uploader.register({
+    module.exports = Uploader.register({
         name: 'log',
 
         init: function() {
@@ -87,4 +87,3 @@ define([
             });
         }
     });
-});

@@ -2,12 +2,10 @@
  * @fileOverview 各种验证，包括文件总大小是否超出、单文件是否超出和文件是否重复。
  */
 
-define([
-    '../base',
-    '../uploader',
-    '../file',
-    './widget'
-], function( Base, Uploader, WUFile ) {
+var Base = require('../base');
+var Uploader = require('../uploader');
+var WUFile = require('../file');
+require('./widget');
 
     var $ = Base.$,
         validators = {},
@@ -224,5 +222,4 @@ define([
         });
     });
 
-    return api;
-});
+    module.exports = api;

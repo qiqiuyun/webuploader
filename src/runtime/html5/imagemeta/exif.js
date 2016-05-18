@@ -41,10 +41,10 @@
 // WhiteBalance : Auto white balance
 // FocalLengthIn35mmFilm : 35
 // SceneCaptureType : Standard
-define([
-    '../../../base',
-    '../imagemeta'
-], function( Base, ImageMeta ) {
+
+
+var Base = require('../../../base');
+var ImageMeta = require('../imagemeta');
 
     var EXIF = {};
 
@@ -306,5 +306,4 @@ define([
     };
 
     ImageMeta.parsers[ 0xffe1 ].push( EXIF.parseExifData );
-    return EXIF;
-});
+    module.exports = EXIF;

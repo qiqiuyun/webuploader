@@ -18,10 +18,8 @@
  * @module WebUploader
  * @title WebUploader API文档
  */
-define([
-    './dollar',
-    './promise'
-], function( $, promise ) {
+var $ = require('./dollar');
+var promise = require('./promise');
 
     var noop = function() {},
         call = Function.call;
@@ -57,7 +55,7 @@ define([
      * 基础类，提供一些简单常用的方法。
      * @class Base
      */
-    return {
+    module.exports = {
 
         /**
          * @property {String} version 当前版本号。
@@ -315,4 +313,3 @@ define([
                     unit;
         }
     };
-});

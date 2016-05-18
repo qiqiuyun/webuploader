@@ -1,11 +1,11 @@
 /**
  * @fileOverview Fix android canvas.toDataUrl bug.
  */
-define([
-    './util',
-    './jpegencoder',
-    '../../base'
-], function( Util, encoder, Base ) {
+
+var Base = require('../../base');
+var Util = require('./util');
+var encoder = require('./jpegencoder');
+
     var origin = Util.canvasToDataUrl,
         supportJpeg;
 
@@ -47,4 +47,3 @@ define([
 
         return origin.apply( null, arguments );
     };
-});

@@ -4,9 +4,8 @@
  * Uint8Array, FileReader, BlobBuilder, atob, ArrayBuffer
  * @fileOverview Image控件
  */
-define([
-    './util'
-], function( Util ) {
+
+var Util = require('./util');
 
     var api;
 
@@ -127,5 +126,4 @@ define([
         return api.updateImageHead.apply( api, arguments );
     };
 
-    return api;
-});
+    module.exports = api;
