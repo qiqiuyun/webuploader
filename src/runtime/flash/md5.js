@@ -1,11 +1,10 @@
 /**
  * @fileOverview  Md5 flash实现
  */
-define([
-    './runtime'
-], function( FlashRuntime ) {
+
+var FlashRuntime = require('./runtime');
     
-    return FlashRuntime.register( 'Md5', {
+    module.exports = FlashRuntime.register( 'Md5', {
         init: function() {
             // do nothing.
         },
@@ -14,4 +13,3 @@ define([
             return this.flashExec( 'Md5', 'loadFromBlob', blob.uid );
         }
     });
-});

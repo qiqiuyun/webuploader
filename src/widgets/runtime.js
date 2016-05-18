@@ -3,7 +3,7 @@
  */
 
 var Uploader = require('../uploader');
-var RuntimeClient = require('../runtime/client');
+var Runtime = require('../runtime/runtime');
 require('./widget');
 
     Uploader.support = function() {

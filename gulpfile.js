@@ -24,6 +24,7 @@ var options = minimist(process.argv.slice(2), {
 
 var b = watchify(browserify(assign({}, watchify.args, {
   entries: ['./src/webuploader.js',],
+  standalone: 'WebUploader',
   debug: true
 }))); 
 

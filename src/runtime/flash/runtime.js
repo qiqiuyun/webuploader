@@ -1,11 +1,10 @@
 /**
  * @fileOverview FlashRuntime
  */
-define([
-    '../../base',
-    '../runtime',
-    '../compbase'
-], function( Base, Runtime, CompBase ) {
+
+var Base = require('../../base');
+var Runtime = require('../runtime');
+var CompBase = require('../compbase');
 
     var $ = Base.$,
         type = 'flash',
@@ -179,5 +178,4 @@ define([
         Runtime.addRuntime( type, FlashRuntime );
     }
 
-    return FlashRuntime;
-});
+    module.exports = FlashRuntime;

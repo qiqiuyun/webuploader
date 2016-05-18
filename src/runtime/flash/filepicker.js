@@ -1,13 +1,13 @@
 /**
  * @fileOverview FilePicker
  */
-define([
-    '../../base',
-    './runtime'
-], function( Base, FlashRuntime ) {
+
+var Base = require('../../base');
+var FlashRuntime = require('./runtime');
+
     var $ = Base.$;
 
-    return FlashRuntime.register( 'FilePicker', {
+    module.exports = FlashRuntime.register( 'FilePicker', {
         init: function( opts ) {
             var copy = $.extend({}, opts ),
                 len, i;
@@ -31,4 +31,3 @@ define([
             this.flashExec( 'FilePicker', 'destroy' );
         }
     });
-});

@@ -1,14 +1,14 @@
 /**
  * @fileOverview  Transport flash实现
  */
-define([
-    '../../base',
-    './runtime',
-    '../client'
-], function( Base, FlashRuntime, RuntimeClient ) {
+
+var Base = require('../../base');
+var FlashRuntime = require('./runtime');
+var RuntimeClient = require('../client');
+
     var $ = Base.$;
 
-    return FlashRuntime.register( 'Transport', {
+    module.exports = FlashRuntime.register( 'Transport', {
         init: function() {
             this._status = 0;
             this._response = null;
@@ -149,4 +149,3 @@ define([
             });
         }
     });
-});

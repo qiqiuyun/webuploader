@@ -1,11 +1,10 @@
 /**
  * @fileOverview 图片压缩
  */
-define([
-    './runtime'
-], function( FlashRuntime ) {
 
-    return FlashRuntime.register( 'Image', {
+var FlashRuntime = require('./runtime');
+
+    module.exports = FlashRuntime.register( 'Image', {
         // init: function( options ) {
         //     var owner = this.owner;
 
@@ -24,4 +23,3 @@ define([
             this.flashExec( 'Image', 'loadFromBlob', blob.uid );
         }
     });
-});
