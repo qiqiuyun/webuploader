@@ -15,7 +15,7 @@ var Html5Runtime = require('./runtime');
                 opts = me.options,
                 label = this.label = $( document.createElement('label') ),
                 input =  this.input = $( document.createElement('input') ),
-                arr, i, len, mouseHandler;
+                arr, i, len, mouseHandler, changeHandler;
 
             input.attr( 'type', 'file' );
             input.attr( 'capture', 'camera');
@@ -59,9 +59,8 @@ var Html5Runtime = require('./runtime');
                 owner.trigger( e.type );
             };
 
-            input.on( 'change', function( e ) {
-                var fn = arguments.callee,
-                    clone;
+            changeHandler = function ( e ) {
+                var clone;
 
                 me.files = e.target.files;
 
@@ -71,11 +70,14 @@ var Html5Runtime = require('./runtime');
                 this.parentNode.replaceChild( clone, this );
 
                 input.off();
-                input = $( clone ).on( 'change', fn )
+                input = $( clone ).on( 'change', changeHandler )
                         .on( 'mouseenter mouseleave', mouseHandler );
 
                 owner.trigger('change');
-            });
+
+            };
+
+            input.on( 'change', changeHandler);
 
             label.on( 'mouseenter mouseleave', mouseHandler );
 
