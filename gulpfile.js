@@ -29,17 +29,6 @@ var b = watchify(browserify(assign({}, watchify.args, {
 }))); 
 
 
-gulp.task('build', function() {
-
-    return b.bundle()
-      // log errors if they happen
-      .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-      .pipe(source('webuploader-new.js'))
-      .pipe(buffer())
-      .pipe(gulpif(options.env === 'prod', uglify()))
-      .pipe(gulp.dest('./dist'));
-});
-
 
 gulp.task('build', bundle); // so you can run `gulp build` to build the file
 b.on('update', bundle); // on any dep update, runs the bundler
@@ -49,10 +38,10 @@ function bundle() {
     return b.bundle()
     // log errors if they happen
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-    .pipe(source('webuploader-new.js'))
+    .pipe(source('webuploader.js'))
     .pipe(buffer())
     .pipe(gulpif(options.env === 'prod', uglify()))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist-gulp'));
 }
 
 // gulp.task('default', ['build']);
