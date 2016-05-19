@@ -15,6 +15,8 @@ var Html5Runtime = require('./runtime');
         init: function() {
             this._status = 0;
             this._response = null;
+            this._responseHeaders = null;
+            this._requestURL = null;
         },
 
         send: function() {
@@ -83,6 +85,18 @@ var Html5Runtime = require('./runtime');
             return this._parseJson( this._response );
         },
 
+        getResponseHeaders: function() {
+            return this._responseHeader;
+        },
+
+        getRequestURL: function() {
+            return this._requestURL;
+        },
+
+        getResponseHeadersAsJson: function() {
+            return this._responseHeaders;
+        },
+
         getStatus: function() {
             return this._status;
         },
@@ -101,6 +115,24 @@ var Html5Runtime = require('./runtime');
 
         destroy: function() {
             this.abort();
+        },
+
+        _parseHeaders: function (headerStr) {
+            var headers = {};
+            if (!headerStr) {
+                return headers;
+            }
+            var headerPairs = headerStr.split('\u000d\u000a');
+            for (var i = 0, len = headerPairs.length; i < len; i++) {
+                var headerPair = headerPairs[i];
+                var index = headerPair.indexOf('\u003a\u0020');
+                if (index > 0) {
+                  var key = headerPair.substring(0, index);
+                  var val = headerPair.substring(index + 2);
+                  headers[key] = val;
+                }
+            }
+            return headers;
         },
 
         _initAjax: function() {
@@ -135,6 +167,8 @@ var Html5Runtime = require('./runtime');
                 me._status = xhr.status;
 
                 if ( xhr.status >= 200 && xhr.status < 300 ) {
+                    me._responseHeaders = me._parseHeaders(xhr.getAllResponseHeaders());
+                    me._requestURL = xhr.responseURL;
                     me._response = xhr.responseText;
                     return me.trigger('load');
                 } else if ( xhr.status >= 500 && xhr.status < 600 ) {

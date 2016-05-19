@@ -13,6 +13,8 @@ var RuntimeClient = require('../client');
             this._status = 0;
             this._response = null;
             this._responseJson = null;
+            this._responseHeader = null;
+            this._requestURL = null;
         },
 
         send: function() {
@@ -60,6 +62,18 @@ var RuntimeClient = require('../client');
             return this._responseJson;
         },
 
+        getResponseHeaders: function() {
+            return this._responseHeader || '';
+        },
+
+        getRequestURL: function (){
+            return this._requestURL;
+        },
+
+        getResponseHeadersAsJson: function() {
+            return this._responseHeader;
+        },
+
         abort: function() {
             var xhr = this._xhr;
 
@@ -103,7 +117,9 @@ var RuntimeClient = require('../client');
                 }
 
                 if ( readBody ) {
+                    me._responseHeader = xhr.exec('getResponseHeaders');
                     me._response = xhr.exec('getResponse');
+                    me._requestURL = xhr.exec('getRequestURL');
                     me._response = decodeURIComponent( me._response );
 
                     // flash 处理可能存在 bug, 没辙只能靠 js 了

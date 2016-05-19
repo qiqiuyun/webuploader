@@ -100,6 +100,18 @@ var RuntimeClient = require('../runtime/client');
             return this.exec('getResponseAsJson');
         },
 
+        getResponseHeaders: function() {
+            return this.exec('getResponseHeaders');
+        },
+
+        getResponseHeadersAsJson: function() {
+            return this.exec('getResponseHeadersAsJson');
+        },
+
+        getRequestURL: function(){
+            return this.exec('getRequestURL');
+        },
+
         getStatus: function() {
             return this.exec('getStatus');
         },

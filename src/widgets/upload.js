@@ -727,6 +727,9 @@ require('./widget');
 
                 ret = tr.getResponseAsJson() || {};
                 ret._raw = tr.getResponse();
+                ret._responseHeaders = tr.getResponseHeadersAsJson() || {};
+                ret._requestURL = tr.options.server;
+
                 fn = function( value ) {
                     reject = value;
                 };
@@ -797,13 +800,17 @@ require('./widget');
 
             // 在发送之间可以添加字段什么的。。。
             // 如果默认的字段不够使用，可以通过监听此事件来扩展
-            owner.trigger( 'uploadBeforeSend', block, data, headers );
+            let promise = new Promise(function(resolve, reject) {
+                owner.trigger( 'uploadBeforeSend', block, data, headers, tr, resolve);
+            });
 
-            // 开始发送。
-            tr.appendBlob( opts.fileVal, block.blob, file.name );
-            tr.append( data );
-            tr.setRequestHeader( headers );
-            tr.send();
+            promise.then(function() {
+                // 开始发送。
+                tr.appendBlob( opts.fileVal, block.blob, file.name );
+                tr.append( data );
+                tr.setRequestHeader( headers );
+                tr.send();
+            });
         },
 
         // 完成上传。
