@@ -1,24 +1,25 @@
 /**
  * @fileOverview 只有flash实现的文件版本。
  */
+
+var Base = require('../base');
+
 define([
-    '../base',
 
     // widgets
-    '../widgets/filepicker',
-    '../widgets/image',
-    '../widgets/queue',
-    '../widgets/runtime',
-    '../widgets/upload',
-    '../widgets/validator',
+require('../widgets/filepicker');
+require('../widgets/image');
+require('../widgets/queue');
+require('../widgets/runtime');
+require('../widgets/upload');
+require('../widgets/validator');
 
     // runtimes
 
     // flash
-    '../runtime/flash/filepicker',
-    '../runtime/flash/image',
-    '../runtime/flash/blob',
-    '../runtime/flash/transport'
-], function( Base ) {
-    return Base;
-});
+require('../runtime/flash/filepicker');
+require('../runtime/flash/image');
+require('../runtime/flash/blob');
+require('../runtime/flash/transport');
+
+module.exports = Base;

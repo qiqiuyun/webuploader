@@ -22,19 +22,25 @@ var options = minimist(process.argv.slice(2), {
   default: { env: 'dev' }
 });
 
-var b = watchify(browserify(assign({}, watchify.args, {
-  entries: ['./src/webuploader.js',],
-  standalone: 'WebUploader',
-  debug: true
-}))); 
+var browserifyOptions = {
+    entries: ['./src/webuploader.js',],
+    standalone: 'WebUploader',
+    debug: true
+};
 
+gulp.task('build', function() {
+    var b = browserify(browserifyOptions);
+    bundle(b);
+});
 
+gulp.task('watch', function() {
+    var b = watchify(browserify(assign({}, watchify.args, browserifyOptions)));
+    b.on('update', bundle);
+    b.on('log', gutil.log);
+    bundle(b);
+});
 
-gulp.task('build', bundle); // so you can run `gulp build` to build the file
-b.on('update', bundle); // on any dep update, runs the bundler
-b.on('log', gutil.log); // output build logs to terminal
-
-function bundle() {
+function bundle(b) {
     return b.bundle()
     // log errors if they happen
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
@@ -44,4 +50,4 @@ function bundle() {
     .pipe(gulp.dest('./dist-gulp'));
 }
 
-// gulp.task('default', ['build']);
+gulp.task('default', ['build']);

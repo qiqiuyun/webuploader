@@ -1,30 +1,29 @@
 /**
  * @fileOverview 没有图像处理的版本。
  */
-define([
-    '../base',
+
+var Base = require('../base');
 
     // widgets
-    '../widgets/filednd',
-    '../widgets/filepaste',
-    '../widgets/filepicker',
-    '../widgets/queue',
-    '../widgets/runtime',
-    '../widgets/upload',
-    '../widgets/validator',
+require('../widgets/filednd');
+require('../widgets/filepaste');
+require('../widgets/filepicker');
+require('../widgets/queue');
+require('../widgets/runtime');
+require('../widgets/upload');
+require('../widgets/validator');
 
     // runtimes
     // html5
-    '../runtime/html5/blob',
-    '../runtime/html5/dnd',
-    '../runtime/html5/filepaste',
-    '../runtime/html5/filepicker',
-    '../runtime/html5/transport',
+require('../runtime/html5/blob');
+require('../runtime/html5/dnd');
+require('../runtime/html5/filepaste');
+require('../runtime/html5/filepicker');
+require('../runtime/html5/transport');
 
     // flash
-    '../runtime/flash/filepicker',
-    '../runtime/flash/transport',
-    '../runtime/flash/blob'
-], function( Base ) {
-    return Base;
-});
+require('../runtime/flash/filepicker');
+require('../runtime/flash/transport');
+require('../runtime/flash/blob'
+
+module.exports = Base;

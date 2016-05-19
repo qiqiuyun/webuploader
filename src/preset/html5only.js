@@ -1,28 +1,27 @@
 /**
  * @fileOverview 只有html5实现的文件版本。
  */
-define([
-    '../base',
+
+var Base = require('../base');
 
     // widgets
-    '../widgets/filednd',
-    '../widgets/filepaste',
-    '../widgets/filepicker',
-    '../widgets/image',
-    '../widgets/queue',
-    '../widgets/runtime',
-    '../widgets/upload',
-    '../widgets/validator',
+require('../widgets/filednd');
+require('../widgets/filepaste');
+require('../widgets/filepicker');
+require('../widgets/image');
+require('../widgets/queue');
+require('../widgets/runtime');
+require('../widgets/upload');
+require('../widgets/validator');
 
     // runtimes
     // html5
-    '../runtime/html5/blob',
-    '../runtime/html5/dnd',
-    '../runtime/html5/filepaste',
-    '../runtime/html5/filepicker',
-    '../runtime/html5/imagemeta/exif',
-    '../runtime/html5/image',
-    '../runtime/html5/transport'
-], function( Base ) {
-    return Base;
-});
+require('../runtime/html5/blob');
+require('../runtime/html5/dnd');
+require('../runtime/html5/filepaste');
+require('../runtime/html5/filepicker');
+require('../runtime/html5/imagemeta/exif');
+require('../runtime/html5/image');
+require('../runtime/html5/transport');
+
+module.exports = Base;
